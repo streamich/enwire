@@ -13,6 +13,8 @@ or use `enwire` without installation:
 
 ```shell
 npx enwire
+npx enwire --no-process -r HOME
+cat package.json | npx enwire --pick name --no-process
 ```
 
 
@@ -70,7 +72,7 @@ echo '{"db": "Test"}' | enwire --rewire db:PGDATABASE -- printenv PGDATABASE
 Print project name.
 
 ```shell
-cat package.json | rewire --pick name --no-process
+cat package.json | enwire --pick name --no-process
 # {"name": "enwire"}
 ```
 
