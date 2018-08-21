@@ -37,7 +37,6 @@ workflows:
   all:
     jobs:
       - all:
-          context: common-env-vars
           filters:
             branches:
               ignore:
@@ -46,7 +45,6 @@ workflows:
   master:
     jobs:
       - master:
-          context: common-env-vars
           filters:
             branches:
               only: master
