@@ -1,6 +1,9 @@
 {
   "name": "enwire",
   "version": "0.0.0",
+  "bin": {
+    "enwire": "./cli.js"
+  },
   "scripts": {
     "test": "./test.sh"
   },
