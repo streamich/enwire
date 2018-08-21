@@ -29,36 +29,70 @@ enwire
 Print selected env vars.
 
 ```shell
-enwire --no-process -r HOME
-# {
-#     "HOME": "..."
-# }
+enwire --no-process --rewire HOME
+# {"HOME": "..."}
 ```
 
 Rewire env vars.
 
 ```shell
-enwire --no-process -r HOME:TROLOLO
+enwire --no-process --rewire HOME:TROLOLO
+# {"TROLOLO": "..."}
+```
+
+Pass string as an env var.
+
+```shell
+echo Hello | enwire --no-process
+# {"ENWIRE": "Hello"}
+```
+
+Set custom name for string variable.
+
+```shell
+echo Hello | enwire --no-process --name HELLO
+# {"HELLO": "Hello"}
+```
+
+Populate env vars from JSON.
+
+```shell
+echo '{"db": "Test"}' | enwire --no-process
+# {"db": "Test"}
+```
+
+Rewire JSON env vars.
+
+```shell
+echo '{"db": "Test"}' | enwire --no-process --rewire db:PGDATABASE --delete db
+# {"PGDATABASE": "Test"}
+```
+
+Print project name.
+
+```shell
+cat package.json | enwire --no-process --pick name
+# {"name": "enwire"}
+```
+
+Rewire nested keys from JSON.
+
+```shell
+cat package.json | enwire --no-process --no-merge --rewire scripts.test:TEST_CMD
+# {"name": "./test.sh"}
+```
+
+Pass project name to `printenv NAME` script.
+
+```shell
+cat package.json | enwire --rewire name:NAME -- printenv NAME
+# enwire
 ```
 
 Pass env vars to `yarn deploy` script.
 
 ```shell
 enwire --rewire AWS_PROFILE_PROD:AWS_PROFILE -- yarn deploy
-```
-
-Pass string as an env var.
-
-```shell
-echo 'Hello' | enwire -- printenv ENWIRE
-# Hello
-```
-
-Set custom name for string variable.
-
-```shell
-echo 'Hello' | enwire --name WORLD -- printenv WORLD
-# Hello
 ```
 
 Rewire environment variables.
@@ -68,32 +102,11 @@ db=Test enwire --rewire db:PGDATABASE -- printenv PGDATABASE
 # Test
 ```
 
-Populate environment variables from JSON.
-
-```shell
-echo '{"db": "Test"}' | enwire --rewire db:PGDATABASE -- printenv PGDATABASE
-# Test
-```
-
-Print project name.
-
-```shell
-cat package.json | enwire --pick name --no-process
-# {"name": "enwire"}
-```
-
-Rewire nested keys from JSON.
-
-```shell
-cat package.json | rewire -r scripts.test:TEST_CMD -- printenv TEST_CMD
-# ./test.sh
-```
-
 Evaluate arguments as JavaScript template strings.
 
 ```shell
-HELLO=Hello WORLD=World enwire --eval -- echo "\${HELLO} \${WORLD + '?'}"
-# Hello World?
+HELLO=Hello enwire --eval -- echo "\${HELLO}, \${USER + '\!'}"
+# Hello, user!
 ```
 
 
