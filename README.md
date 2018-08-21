@@ -79,7 +79,7 @@ Rewire nested keys from JSON.
 
 ```shell
 cat package.json | enwire --no-process --no-merge --rewire scripts.test:TEST_CMD
-# {"name": "./test.sh"}
+# {"TEST_CMD": "./test.sh"}
 ```
 
 Pass project name to `printenv NAME` script.
