@@ -19,3 +19,8 @@ echo "Can --rewire variables"
 if [ $(echo '{"foo": "bar"}' | node lib/cli.js --rewire foo:LOL -- printenv LOL) != "bar" ]; then
   exit 1
 fi
+
+echo "Can exract keys from .json file"
+if [ $(cat package.json | node lib/cli.js -- printenv name) != "enwire" ]; then
+  exit 1
+fi
