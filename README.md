@@ -38,6 +38,12 @@ enwire --no-process -r HOME
 Rewire env vars.
 
 ```shell
+enwire --no-process -r HOME:TROLOLO
+```
+
+Pass env vars to `yarn deploy` script.
+
+```shell
 enwire --rewire AWS_PROFILE_PROD:AWS_PROFILE -- yarn deploy
 ```
 
