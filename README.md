@@ -15,7 +15,7 @@ echo 'Hello' | npx enwire -- printenv ENWIRE
 Set custom name for string variable.
 
 ```shell
-echo 'Hello' | npx enwire -- printenv ENWIRE
+echo 'Hello' | npx enwire --name WORLD -- printenv WORLD
 # Hello
 ```
 
