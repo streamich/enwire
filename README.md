@@ -36,7 +36,7 @@ echo '{"db": "Test"}' | npx enwire --rewire db:PGDATABASE -- printenv PGDATABASE
 Print project name.
 
 ```shell
-cat package.json | npx rewire --pick name --exclude-process
+cat package.json | npx rewire --pick name --no-process
 ```
 
 
