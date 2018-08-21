@@ -47,4 +47,4 @@ cat package.json | npx rewire --pick name --no-process
 - `--delete`, `-d` &mdash; environment variable to delete.
 - `--pick` &mdash; specifies which keys to pick from JSON object provided through STDIN.
 - `--no-process` &mdash; if specified, process environment variables will not be included.
-- `--no-merge` &mdahs; don't merge JSON from STDIN into `process.env`.
+- `--no-merge` &mdash; don't merge JSON from STDIN into `process.env`.
