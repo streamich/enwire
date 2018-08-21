@@ -5,7 +5,28 @@ Tool for *"re-wiring"* environment variables.
 
 ## Usage
 
-Pass string as environment variable.
+Print all env vars.
+
+```shell
+npx enwire
+```
+
+Print selected env vars.
+
+```shell
+npx enwire --no-process -r HOME
+# {
+#     "HOME": "..."
+# }
+```
+
+Rewire env vars.
+
+```shell
+npx enwire --rewire AWS_PROFILE_PROD:AWS_PROFILE -- yarn deploy
+```
+
+Pass string as an env var.
 
 ```shell
 echo 'Hello' | npx enwire -- printenv ENWIRE
