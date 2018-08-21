@@ -1,0 +1,52 @@
+version: 2
+
+refs:
+  container: &container
+    docker:
+      - image: node:8.11
+    working_directory: ~/repo
+
+jobs:
+  all:
+    <<: *container
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn install --pure-lockfile
+      - run:
+          name: Test
+          command: yarn test
+
+  master:
+    <<: *container
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn install --pure-lockfile
+      - run:
+          name: Test
+          command: yarn test
+      - run:
+          name: Publish
+          command: npx semantic-release
+
+workflows:
+  version: 2
+  all:
+    jobs:
+      - all:
+          context: common-env-vars
+          filters:
+            branches:
+              ignore:
+                - master
+                - gh-pages
+  master:
+    jobs:
+      - master:
+          context: common-env-vars
+          filters:
+            branches:
+              only: master
