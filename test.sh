@@ -24,3 +24,8 @@ echo "Can exract keys from .json file"
 if [ $(cat package.json | node lib/cli.js -- printenv name) != "enwire" ]; then
   exit 1
 fi
+
+echo "Can extract nested paths from JSON"
+if [ $(cat package.json | node lib/cli.js -r scripts.test:TEST -- printenv TEST) != "./test.sh" ]; then
+  exit 1
+fi
