@@ -37,6 +37,14 @@ Print project name.
 
 ```shell
 cat package.json | npx rewire --pick name --no-process
+# {"name": "enwire"}
+```
+
+Rewire nested keys from JSON.
+
+```shell
+cat package.json | npx rewire -r scripts.test:TEST_CMD -- printenv TEST_CMD
+# ./test.sh
 ```
 
 
