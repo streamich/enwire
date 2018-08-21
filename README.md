@@ -3,18 +3,31 @@
 Tool for *"re-wiring"* environment variables.
 
 
-## Usage
+## Installation
 
-Print all env vars.
+```shell
+npm install --global enwire
+```
+
+or use `enwire` without installation:
 
 ```shell
 npx enwire
 ```
 
+
+## Usage
+
+Print all env vars.
+
+```shell
+enwire
+```
+
 Print selected env vars.
 
 ```shell
-npx enwire --no-process -r HOME
+enwire --no-process -r HOME
 # {
 #     "HOME": "..."
 # }
@@ -23,48 +36,48 @@ npx enwire --no-process -r HOME
 Rewire env vars.
 
 ```shell
-npx enwire --rewire AWS_PROFILE_PROD:AWS_PROFILE -- yarn deploy
+enwire --rewire AWS_PROFILE_PROD:AWS_PROFILE -- yarn deploy
 ```
 
 Pass string as an env var.
 
 ```shell
-echo 'Hello' | npx enwire -- printenv ENWIRE
+echo 'Hello' | enwire -- printenv ENWIRE
 # Hello
 ```
 
 Set custom name for string variable.
 
 ```shell
-echo 'Hello' | npx enwire --name WORLD -- printenv WORLD
+echo 'Hello' | enwire --name WORLD -- printenv WORLD
 # Hello
 ```
 
 Rewire environment variables.
 
 ```shell
-db=Test npx enwire --rewire db:PGDATABASE -- printenv PGDATABASE
+db=Test enwire --rewire db:PGDATABASE -- printenv PGDATABASE
 # Test
 ```
 
 Populate environment variables from JSON.
 
 ```shell
-echo '{"db": "Test"}' | npx enwire --rewire db:PGDATABASE -- printenv PGDATABASE
+echo '{"db": "Test"}' | enwire --rewire db:PGDATABASE -- printenv PGDATABASE
 # Test
 ```
 
 Print project name.
 
 ```shell
-cat package.json | npx rewire --pick name --no-process
+cat package.json | rewire --pick name --no-process
 # {"name": "enwire"}
 ```
 
 Rewire nested keys from JSON.
 
 ```shell
-cat package.json | npx rewire -r scripts.test:TEST_CMD -- printenv TEST_CMD
+cat package.json | rewire -r scripts.test:TEST_CMD -- printenv TEST_CMD
 # ./test.sh
 ```
 
