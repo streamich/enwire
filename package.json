@@ -1,0 +1,11 @@
+{
+  "name": "enwire",
+  "version": "0.0.0",
+  "dependencies": {
+    "get-stdin": "^6.0.0",
+    "minimist": "^1.2.0",
+    "child-process-promise": "^2.2.1"
+  },
+  "devDependencies": {
+  }
+}
