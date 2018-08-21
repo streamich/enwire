@@ -83,6 +83,13 @@ cat package.json | rewire -r scripts.test:TEST_CMD -- printenv TEST_CMD
 # ./test.sh
 ```
 
+Evaluate arguments as JavaScript template strings.
+
+```shell
+HELLO=Hello WORLD=World enwire --eval -- echo "\${HELLO} \${WORLD + '?'}"
+# Hello World?
+```
+
 
 ## Options
 
@@ -92,3 +99,4 @@ cat package.json | rewire -r scripts.test:TEST_CMD -- printenv TEST_CMD
 - `--pick` &mdash; specifies which keys to pick from JSON object provided through STDIN.
 - `--no-process` &mdash; if specified, process environment variables will not be included.
 - `--no-merge` &mdash; don't merge JSON from STDIN into `process.env`.
+- `--eval`, `-e` &mdash; evaluate CLI argumens as JS template strings.

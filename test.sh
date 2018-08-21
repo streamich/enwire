@@ -25,6 +25,11 @@ if [ $(cat package.json | node cli.js -- printenv name) != "enwire" ]; then
   exit 1
 fi
 
+echo "Can evaluate arguments"
+if [ $(HELLO=Hello WORLD=World node cli.js --eval -- echo "\${HELLO}") != "Hello" ]; then
+  exit 1
+fi
+
 echo "Can extract nested paths from JSON"
 if [ $(cat package.json | node cli.js -r scripts.test:TEST -- printenv TEST) != "./test.sh" ]; then
   exit 1
