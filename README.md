@@ -24,7 +24,7 @@ cat .env | npx enwire --pick foo --no-process
 
 ## *[`dotenv`](https://www.npmjs.com/package/dotenv)-like* Usage
 
-Create a `.env` file with your env var.
+Create a `.env` file with your env vars.
 
 ```
 FOO=bar
