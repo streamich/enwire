@@ -138,13 +138,14 @@ HELLO=Hello enwire --eval -- echo "\${HELLO}, \${USER + '\!'}"
 
 ## Options
 
+- `--delete`, `-d` &mdash; environment variable to delete.
+- `--eval`, `-e` &mdash; evaluate CLI argumens as JS template strings.
+- `--import`, `-i` &mdash; import and merge extra `.json` and `.env` files into process env
 - `--rewire`, `-r` &mdash; from-to mapping of environment variable, e.g. `--rewire db:PGDATABASE`.
 - `--delete-rewired` &mdash; if specified, rewired environment variables will be deleted.
-- `--delete`, `-d` &mdash; environment variable to delete.
-- `--pick` &mdash; specifies which keys to pick from JSON object provided through STDIN.
+- `--format` &mdash; by default exports in JSON format, `--format=env` can be set to export in env var format.
 - `--no-process` &mdash; if specified, process environment variables will not be included.
 - `--no-merge` &mdash; don't merge JSON from STDIN into `process.env`.
-- `--eval`, `-e` &mdash; evaluate CLI argumens as JS template strings.
-- `--format` &mdash; by default exports in JSON format, `--format=env` can be set to export in env var format.
+- `--pick` &mdash; specifies which keys to pick from JSON object provided through STDIN.
 - `--help`, `-h` &mdash; show usage info.
 - `--version`, `-v` &mdash; show `enwire` version.
