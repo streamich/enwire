@@ -1,13 +1,18 @@
 #!/usr/bin/env bats
 
 @test "Passes through environment variables" {
-  result="$(echo 'Hello' | node cli.js -- printenv ENWIRE)"
+  result="$(echo 'Hello' | node cli.js --raw -- printenv ENWIRE)"
   [ "$result" == "Hello" ]
 }
 
 @test "Testing --name param" {
-  result="$(echo 'Hello' | node cli.js --name WORLD -- printenv WORLD)"
+  result="$(echo 'Hello' | node cli.js --name WORLD --raw -- printenv WORLD)"
   [ "$result" == "Hello" ]
+}
+
+@test "Can pick from .env file" {
+  result="$(cat .env | node cli.js --pick foo -- printenv foo)"
+  [ "$result" == "bar" ]
 }
 
 @test "Reads JSON from STDIN" {

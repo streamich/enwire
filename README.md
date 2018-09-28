@@ -15,6 +15,7 @@ or use `enwire` without installation:
 npx enwire
 npx enwire --no-process -r HOME
 cat package.json | npx enwire --pick name --no-process
+cat .env | npx enwire --pick foo --no-process
 ```
 
 
