@@ -49,3 +49,39 @@
   result="$(cat .env | node cli.js -r foo --format env --no-process)"
   [ "$result" == "foo=\"bar\"" ]
 }
+
+@test "Can --import files" {
+  result="$(node cli.js --import package.json -- printenv name)"
+  [ "$result" == "enwire" ]
+}
+
+@test "Can use -i shorthand for imports" {
+  result="$(node cli.js -i package.json -- printenv name)"
+  [ "$result" == "enwire" ]
+}
+
+@test "Can import .env file" {
+  result="$(node cli.js -i .env -- printenv foo)"
+  [ "$result" == "bar" ]
+}
+
+@test "Can merge imports into process env vars" {
+  result="$(cat package.json | node cli.js -i .env -- printenv foo)"
+  [ "$result" == "bar" ]
+  result="$(cat package.json | node cli.js -i .env -- printenv name)"
+  [ "$result" == "enwire" ]
+}
+
+@test "Can import multiple files" {
+  result="$(node cli.js -i .env -i package.json -- printenv foo)"
+  [ "$result" == "bar" ]
+  result="$(node cli.js -i .env -i package.json -- printenv name)"
+  [ "$result" == "enwire" ]
+}
+
+@test "Can interchange -i and --import" {
+  result="$(node cli.js -i .env --import package.json -- printenv foo)"
+  [ "$result" == "bar" ]
+  result="$(node cli.js -i .env --import package.json -- printenv name)"
+  [ "$result" == "enwire" ]
+}
