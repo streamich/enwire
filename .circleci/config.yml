@@ -5,29 +5,35 @@ refs:
     docker:
       - image: node:8.11
     working_directory: ~/repo
+  steps:
+    - &Install_Dependencies
+      run:
+        name: Install Dependencies
+        command: |
+          node -v && npm -v && yarn -v
+          yarn install --pure-lockfile
+          git clone https://github.com/sstephenson/bats.git
+          cd bats
+          sudo ./install.sh /usr/local
+    - &Tests
+      run:
+        name: Tests
+        command: yarn test
 
 jobs:
   all:
     <<: *container
     steps:
       - checkout
-      - run:
-          name: Install Dependencies
-          command: yarn install --pure-lockfile
-      - run:
-          name: Test
-          command: yarn test
+      - *Install_Dependencies
+      - *Tests
 
   master:
     <<: *container
     steps:
       - checkout
-      - run:
-          name: Install Dependencies
-          command: yarn install --pure-lockfile
-      - run:
-          name: Test
-          command: yarn test
+      - *Install_Dependencies
+      - *Tests
       - run:
           name: Publish
           command: npx semantic-release
