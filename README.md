@@ -69,14 +69,14 @@ enwire --no-process --rewire HOME:TROLOLO
 Pass string as an env var.
 
 ```shell
-echo Hello | enwire --no-process
+echo Hello | enwire --raw --no-process
 # {"ENWIRE": "Hello"}
 ```
 
 Set custom name for string variable.
 
 ```shell
-echo Hello | enwire --no-process --name HELLO
+echo Hello | enwire --raw --no-process --name HELLO
 # {"HELLO": "Hello"}
 ```
 
