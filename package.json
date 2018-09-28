@@ -9,7 +9,8 @@
     "enwire": "./cli.js"
   },
   "scripts": {
-    "test": "bats test.bats"
+    "test": "bats test.bats",
+    "release": "semantic-release"
   },
   "dependencies": {
     "get-stdin": "^6.0.0",
@@ -18,5 +19,21 @@
     "dotenv": "^6.0.0"
   },
   "devDependencies": {
+    "semantic-release": "^15.9.16",
+    "@semantic-release/changelog": "^3.0.0",
+    "@semantic-release/npm": "^5.0.4",
+    "@semantic-release/git": "^7.0.4"
+  },
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/git",
+      "@semantic-release/npm"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/git",
+      "@semantic-release/npm"
+    ]
   }
 }
