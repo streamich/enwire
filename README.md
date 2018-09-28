@@ -2,6 +2,9 @@
 
 Tool for *"re-wiring"* environment variables.
 
+- Supports `.json` format
+- Supports `.env` format
+
 
 ## Installation
 
@@ -16,6 +19,21 @@ npx enwire
 npx enwire --no-process -r HOME
 cat package.json | npx enwire --pick name --no-process
 cat .env | npx enwire --pick foo --no-process
+```
+
+
+## *[`dotenv`](https://www.npmjs.com/package/dotenv)-like* Usage
+
+Create a `.env` file with your env var.
+
+```
+FOO=bar
+```
+
+Run your app with your env vars.
+
+```shell
+cat .env | enwire node app.js
 ```
 
 
