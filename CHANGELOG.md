@@ -1,3 +1,11 @@
+## [2.1.1](https://github.com/streamich/enwire/compare/v2.1.0...v2.1.1) (2018-09-28)
+
+
+### Bug Fixes
+
+* 🐛 improve help output ([2d598cd](https://github.com/streamich/enwire/commit/2d598cd))
+* 🐛 improve usage command spacing ([c89fa0d](https://github.com/streamich/enwire/commit/c89fa0d))
+
 # [2.1.0](https://github.com/streamich/enwire/compare/v2.0.0...v2.1.0) (2018-09-28)
 
 
