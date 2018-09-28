@@ -1,11 +1,15 @@
 {
   "name": "enwire",
   "version": "0.0.0",
+  "files": [
+    "cli.js",
+    "lib/"
+  ],
   "bin": {
     "enwire": "./cli.js"
   },
   "scripts": {
-    "test": "./test.sh"
+    "test": "bats test.bats"
   },
   "dependencies": {
     "get-stdin": "^6.0.0",
