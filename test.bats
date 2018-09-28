@@ -44,3 +44,8 @@
   result="$(cat .env | node cli.js -r foo -- printenv foo)"
   [ "$result" == "bar" ]
 }
+
+@test "Supports --format=env" {
+  result="$(cat .env | node cli.js -r foo --format env --no-process)"
+  [ "$result" == "foo=\"bar\"" ]
+}

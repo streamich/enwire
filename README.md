@@ -52,6 +52,13 @@ enwire --no-process --rewire HOME
 # {"HOME": "..."}
 ```
 
+Export in env var format.
+
+```shell
+enwire --no-process --rewire HOME --format env
+# HOME="..."
+```
+
 Rewire env vars.
 
 ```shell
@@ -138,3 +145,4 @@ HELLO=Hello enwire --eval -- echo "\${HELLO}, \${USER + '\!'}"
 - `--no-process` &mdash; if specified, process environment variables will not be included.
 - `--no-merge` &mdash; don't merge JSON from STDIN into `process.env`.
 - `--eval`, `-e` &mdash; evaluate CLI argumens as JS template strings.
+- `--format` &mdash; by default exports in JSON format, `--format=env` can be set to export in env var format.
