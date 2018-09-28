@@ -1,16 +1,21 @@
 {
   "name": "enwire",
   "version": "0.0.0",
+  "files": [
+    "cli.js",
+    "lib/"
+  ],
   "bin": {
     "enwire": "./cli.js"
   },
   "scripts": {
-    "test": "./test.sh"
+    "test": "bats test.bats"
   },
   "dependencies": {
     "get-stdin": "^6.0.0",
     "minimist": "^1.2.0",
-    "child-process-promise": "^2.2.1"
+    "child-process-promise": "^2.2.1",
+    "dotenv": "^6.0.0"
   },
   "devDependencies": {
   }

@@ -2,6 +2,9 @@
 
 Tool for *"re-wiring"* environment variables.
 
+- Supports `.json` format
+- Supports `.env` format
+
 
 ## Installation
 
@@ -15,6 +18,22 @@ or use `enwire` without installation:
 npx enwire
 npx enwire --no-process -r HOME
 cat package.json | npx enwire --pick name --no-process
+cat .env | npx enwire --pick foo --no-process
+```
+
+
+## *[`dotenv`](https://www.npmjs.com/package/dotenv)-like* Usage
+
+Create a `.env` file with your env var.
+
+```
+FOO=bar
+```
+
+Run your app with your env vars.
+
+```shell
+cat .env | enwire node app.js
 ```
 
 
@@ -31,6 +50,13 @@ Print selected env vars.
 ```shell
 enwire --no-process --rewire HOME
 # {"HOME": "..."}
+```
+
+Export in env var format.
+
+```shell
+enwire --no-process --rewire HOME --format env
+# HOME="..."
 ```
 
 Rewire env vars.
@@ -119,3 +145,4 @@ HELLO=Hello enwire --eval -- echo "\${HELLO}, \${USER + '\!'}"
 - `--no-process` &mdash; if specified, process environment variables will not be included.
 - `--no-merge` &mdash; don't merge JSON from STDIN into `process.env`.
 - `--eval`, `-e` &mdash; evaluate CLI argumens as JS template strings.
+- `--format` &mdash; by default exports in JSON format, `--format=env` can be set to export in env var format.
