@@ -36,7 +36,7 @@ jobs:
       - *Tests
       - run:
           name: Publish
-          command: npx semantic-release
+          command: yarn release
 
 workflows:
   version: 2

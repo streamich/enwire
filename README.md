@@ -146,3 +146,5 @@ HELLO=Hello enwire --eval -- echo "\${HELLO}, \${USER + '\!'}"
 - `--no-merge` &mdash; don't merge JSON from STDIN into `process.env`.
 - `--eval`, `-e` &mdash; evaluate CLI argumens as JS template strings.
 - `--format` &mdash; by default exports in JSON format, `--format=env` can be set to export in env var format.
+- `--help`, `-h` &mdash; show usage info.
+- `--version`, `-v` &mdash; show `enwire` version.
