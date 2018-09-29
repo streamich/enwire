@@ -85,3 +85,18 @@
   result="$(node cli.js -i .env --import package.json -- printenv name)"
   [ "$result" == "enwire" ]
 }
+
+@test "Can chain commands" {
+  result="$(
+    node cli.js -i .env -- \
+    node cli.js -i package.json -- \
+    printenv foo
+  )"
+  [ "$result" == "bar" ]
+  result="$(
+    node cli.js -i .env -- \
+    node cli.js -i package.json -- \
+    printenv name
+  )"
+  [ "$result" == "enwire" ]
+}
