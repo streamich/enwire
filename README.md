@@ -135,12 +135,19 @@ HELLO=Hello enwire --eval -- echo "\${HELLO}, \${USER + '\!'}"
 # Hello, user!
 ```
 
+Prompt user to enter env var in console.
+
+```shell
+enwire --prompt TEST -- printenv TEST
+```
+
 
 ## Options
 
 - `--delete`, `-d` &mdash; environment variable to delete.
 - `--eval`, `-e` &mdash; evaluate CLI argumens as JS template strings.
 - `--import`, `-i` &mdash; import and merge extra `.json` and `.env` files into process env
+- `--prompt`, `-p` &mdash; prompt user to input variable in console if not set.
 - `--rewire`, `-r` &mdash; from-to mapping of environment variable, e.g. `--rewire db:PGDATABASE`.
 - `--delete-rewired` &mdash; if specified, rewired environment variables will be deleted.
 - `--format` &mdash; by default exports in JSON format, `--format=env` can be set to export in env var format.
