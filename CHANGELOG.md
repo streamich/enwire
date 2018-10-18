@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/streamich/enwire/compare/v2.2.0...v2.3.0) (2018-10-18)
+
+
+### Features
+
+* 🎸 add --prompt and -p for interactive var input ([b20d4ab](https://github.com/streamich/enwire/commit/b20d4ab))
+
 # [2.2.0](https://github.com/streamich/enwire/compare/v2.1.1...v2.2.0) (2018-09-28)
 
 
