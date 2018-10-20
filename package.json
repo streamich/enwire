@@ -1,6 +1,6 @@
 {
   "name": "enwire",
-  "version": "2.5.0",
+  "version": "3.0.0",
   "description": "Imports, exports, and rewires environment variables.",
   "files": [
     "cli.js",

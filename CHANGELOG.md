@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/streamich/enwire/compare/v2.5.0...v3.0.0) (2018-10-20)
+
+
+### Features
+
+* 🎸 rename --no-merge to --no-stdin ([707b610](https://github.com/streamich/enwire/commit/707b610))
+
+
+### BREAKING CHANGES
+
+* --no-merge is now --no-stdin
+
 # [2.5.0](https://github.com/streamich/enwire/compare/v2.4.1...v2.5.0) (2018-10-20)
 
 
