@@ -1,4 +1,5 @@
-![image](https://user-images.githubusercontent.com/9773803/47254327-55ba7780-d461-11e8-8a7a-d5fe6a4630d4.png)
+![image](https://user-images.githubusercontent.com/9773803/47254584-cc0ca900-d464-11e8-888e-9b7bf07fbb7e.png)
+
 
 
 # enwire
@@ -158,7 +159,7 @@ enwire --prompt TEST -- printenv TEST
 - `--delete-rewired` &mdash; if specified, rewired environment variables will be deleted.
 - `--format` &mdash; by default exports in JSON format, `--format=env` can be set to export in env var format.
 - `--no-process` &mdash; if specified, process environment variables will not be included.
-- `--no-merge` &mdash; don't merge JSON from STDIN into `process.env`.
+- `--no-stdin` &mdash; don't merge STDIN into output.
 - `--pick` &mdash; specifies which keys to pick from JSON object provided through STDIN.
 - `--help`, `-h` &mdash; show usage info.
 - `--version`, `-v` &mdash; show `enwire` version.
