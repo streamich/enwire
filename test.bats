@@ -100,3 +100,13 @@
   )"
   [ "$result" == "enwire" ]
 }
+
+@test "Supports .env format from STDIN" {
+  result="$(echo 'USER=Bart' | USER=foo node cli.js -- printenv USER)"
+  [ "$result" == "Bart" ]
+}
+
+@test "Supports --no-stdin flag" {
+  result="$(echo 'USER=Bart' | USER=foo node cli.js --no-stdin -- printenv USER)"
+  [ "$result" == "foo" ]
+}
