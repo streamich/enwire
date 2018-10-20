@@ -11,7 +11,7 @@
 }
 
 @test "Can pick from .env file" {
-  result="$(cat .env | node cli.js --pick foo -- printenv foo)"
+  result="$(cat .foo.env | node cli.js --pick foo -- printenv foo)"
   [ "$result" == "bar" ]
 }
 
@@ -41,12 +41,12 @@
 }
 
 @test "Supports .env files" {
-  result="$(cat .env | node cli.js -r foo -- printenv foo)"
+  result="$(cat .foo.env | node cli.js -r foo -- printenv foo)"
   [ "$result" == "bar" ]
 }
 
 @test "Supports --format=env" {
-  result="$(cat .env | node cli.js -r foo --format env --no-process)"
+  result="$(cat .foo.env | node cli.js -r foo --format env --no-process)"
   [ "$result" == "foo=\"bar\"" ]
 }
 
@@ -61,40 +61,40 @@
 }
 
 @test "Can import .env file" {
-  result="$(node cli.js -i .env -- printenv foo)"
+  result="$(node cli.js -i .foo.env -- printenv foo)"
   [ "$result" == "bar" ]
 }
 
 @test "Can merge imports into process env vars" {
-  result="$(cat package.json | node cli.js -i .env -- printenv foo)"
+  result="$(cat package.json | node cli.js -i .foo.env -- printenv foo)"
   [ "$result" == "bar" ]
-  result="$(cat package.json | node cli.js -i .env -- printenv name)"
+  result="$(cat package.json | node cli.js -i .foo.env -- printenv name)"
   [ "$result" == "enwire" ]
 }
 
 @test "Can import multiple files" {
-  result="$(node cli.js -i .env -i package.json -- printenv foo)"
+  result="$(node cli.js -i .foo.env -i package.json -- printenv foo)"
   [ "$result" == "bar" ]
-  result="$(node cli.js -i .env -i package.json -- printenv name)"
+  result="$(node cli.js -i .foo.env -i package.json -- printenv name)"
   [ "$result" == "enwire" ]
 }
 
 @test "Can interchange -i and --import" {
-  result="$(node cli.js -i .env --import package.json -- printenv foo)"
+  result="$(node cli.js -i .foo.env --import package.json -- printenv foo)"
   [ "$result" == "bar" ]
-  result="$(node cli.js -i .env --import package.json -- printenv name)"
+  result="$(node cli.js -i .foo.env --import package.json -- printenv name)"
   [ "$result" == "enwire" ]
 }
 
 @test "Can chain commands" {
   result="$(
-    node cli.js -i .env -- \
+    node cli.js -i .foo.env -- \
     node cli.js -i package.json -- \
     printenv foo
   )"
   [ "$result" == "bar" ]
   result="$(
-    node cli.js -i .env -- \
+    node cli.js -i .foo.env -- \
     node cli.js -i package.json -- \
     printenv name
   )"
