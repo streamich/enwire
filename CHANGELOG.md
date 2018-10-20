@@ -1,3 +1,12 @@
+# [2.5.0](https://github.com/streamich/enwire/compare/v2.4.1...v2.5.0) (2018-10-20)
+
+
+### Features
+
+* 🎸 add --eval examples to help output ([c2341c9](https://github.com/streamich/enwire/commit/c2341c9))
+* 🎸 improve --help output ([637eff2](https://github.com/streamich/enwire/commit/637eff2))
+* 🎸 separte FOO=bar into a separate .env file for testing ([a24f102](https://github.com/streamich/enwire/commit/a24f102))
+
 ## [2.4.1](https://github.com/streamich/enwire/compare/v2.4.0...v2.4.1) (2018-10-20)
 
 
