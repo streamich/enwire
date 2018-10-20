@@ -144,6 +144,10 @@ enwire --prompt TEST -- printenv TEST
 
 ## Options
 
+```shell
+npx enwire --help
+```
+
 - `--delete`, `-d` &mdash; environment variable to delete.
 - `--eval`, `-e` &mdash; evaluate CLI argumens as JS template strings.
 - `--import`, `-i` &mdash; import and merge extra `.json` and `.env` files into process env
