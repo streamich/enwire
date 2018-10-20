@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/streamich/enwire/compare/v2.4.0...v2.4.1) (2018-10-20)
+
+
+### Bug Fixes
+
+* 🐛 improve --help output ([72de0d4](https://github.com/streamich/enwire/commit/72de0d4))
+
 # [2.4.0](https://github.com/streamich/enwire/compare/v2.3.0...v2.4.0) (2018-10-20)
 
 
