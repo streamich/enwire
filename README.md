@@ -144,9 +144,8 @@ enwire --prompt TEST -- printenv TEST
 
 ## Options
 
-```shell
-npx enwire --help
-```
+[`npx enwire --help`](https://github.com/streamich/enwire/wiki/enwire)
+
 
 - `--delete`, `-d` &mdash; environment variable to delete.
 - `--eval`, `-e` &mdash; evaluate CLI argumens as JS template strings.
